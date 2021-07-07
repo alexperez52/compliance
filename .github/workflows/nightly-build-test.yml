@@ -1,7 +1,8 @@
 name: Go
+
 on: 
   schedule:
-  - cron: '20 11 * * *'
+  - cron: '*/5 * * * *'
 
 jobs:
 
