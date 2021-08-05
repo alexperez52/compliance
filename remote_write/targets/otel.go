@@ -3,15 +3,17 @@ package targets
 import (
 	"fmt"
 	"os"
+	"path"
 )
 
-const otelDownloadURL = ""
 
 func RunOtelCollector(opts TargetOptions) error {
-	binary, err := downloadBinary(otelDownloadURL, "")
+	cwd, err := os.Getwd()
 	if err != nil {
 		return err
 	}
+	//hardcoded binary name
+	binary := path.Join(cwd, "bin", "otelcol_linux_amd64")
 
 	cfg := fmt.Sprintf(`
 receivers:
