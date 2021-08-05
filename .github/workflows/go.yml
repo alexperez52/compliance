@@ -17,6 +17,6 @@ jobs:
 
     - name: Test
       run: cd remote_write && mkdir bin && cd bin && git clone https://github.com/open-telemetry/opentelemetry-collector.git &&
-        cd opentelemetry-collector && make build-binary-internal && cd bin && mv otelcol_darwin_amd64 ../../ &&
+        cd opentelemetry-collector && make build-binary-internal && cd bin && mv otelcol_linux_amd64 ../../ &&
         cd ../../ && rm -rf opentelemetry-collector &&
         cd .. && go test --tags=compliance -run "TestRemoteWrite/otel/.+" -v ./
